@@ -1,5 +1,8 @@
-var express = require('express'), app = express();
+var http = require('http');
 
-app.use(express.static(__dirname + '/public'));
+var server = http.createServer(function(req, res) {
+	res.writeHead(200);
+	res.end('<h1>Hello Node.js</h1>');
+});
 
-app.listen(3000);
+server.listen(process.env.PORT || 3000);
